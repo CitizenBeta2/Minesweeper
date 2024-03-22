@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width">
+
+<title>扫雷游戏提示 - Minesweeper Hint</title>
+
+<style>
+body{background:#f7f7f0;}
+table{border-collapse:collapse;cursor:default;}
+#foo{border-top:solid 1px #cccccc;padding-top:2rem;margin-top:6rem;width:90%;text-align:center}
+</style>
+
+
+
+<base target=_top>
+</head>
+
+<body>
+
+<a id=back href=./>返回游戏</a>
+
+<script>
+
+if(document.referrer.length>0 && document.location.href.indexOf(document.referrer)==0){
+document.getElementById("back").href="javascript:history.back(-1)";
+}
+</script>
+<center>
+<br><br>
+<div style="text-align:left;width:90%">
+<br>
+<br>
+<b>最常用的基础定式</b>
+<br><br>
+先假设待判的数字的周围没有已标记的雷（周围有雷的情况，请看后面的“减法原理”）。
+<br><br>
+（图中隐去了不相关的数字。蓝点为空，红点为雷。）
+<br><br>
+<br>
+<b>一头定式</b>
+<br><br>
+“一头”是指数字的一侧（垂直的三个格子）为空或靠边框。
+<br>
+<br>
+一、2在一头，两个雷；
+<br>
+<img src=2-1.jpg>(图中2靠右边框)
+<br><br><br>
+（推论）22定式：22在一头，则第三个格子不是雷。（图片暂略）
+<br><br><br>
+二、11定式：11在一头，则另一侧的三个格子无雷；
+<br>
+<img src=11-1.jpg>(图中11左侧靠边框)
+<br><br>
+<img src=11-2.jpg>(图中11左侧已明确为空)
+<br><br><br>
+（推论）111定式：三个1两个头，则中间一个是雷，其余两个不是雷。（图片暂略）
+<br><br>
+<br><br>
+<b>任意位置定式</b>
+<br><br>
+三、12在任意位置，1外侧没有雷，2外侧有一个雷；
+<br>
+<img src=12.jpg>
+<br><br><br>
+四、3在中间，三个雷；
+<br>
+<img src=3.jpg>
+<br><br><br>
+五、121在任何位置，两个1有雷，2无雷；
+<br>
+<img src=121.jpg>
+<br><br><br>
+六、1221在任何位置：两个2有雷，1无雷
+<br>
+<img src=1221.jpg>
+<br><br><br>
+以上定式，方向左右横竖都一样。
+<br><br><br>
+<b>减法原理：</b>
+<br><br>
+如果数字的周围已标有地雷，则先将数字减去周围雷数，同时心中把这些雷变为空白，再应用定式。
+<br><br>
+下图：实为11定式，绿点可以打开
+<br>
+<img src=minus3.jpg>
+<br>
+<br>
+<br>
+下图：3周围有两个雷3-2=1，2周围有一个雷2-1=1，故简化为11模式，画点的两个格子可以直接打开。
+<br>
+<img src=minus.jpg>
+<br>
+<br>
+<br>
+下图：减完后是12定式，红点为雷。
+<br>
+<img src=minus12.jpg>
+<br>
+<br>
+<br>
+下图：根据图中位于上方的数字3，椭圆圈住的两个未明格子有且只有一个雷，则下面的3变为2，适用12定式，蓝点非雷，红点为雷。
+<br>
+<img src="minus6.jpg">
+<br><br><br>
+<br>
+</div>
+<div style="margin-top:2rem;">
+<span id="ver" style="display:none;"></span>
+<br><br>
+<hr width=90%>
+<br>
+&copy; <span id=year><script>document.getElementById("year").innerHTML=(new Date).getFullYear()</script></span> David Miller.<br>
+<a href=https://www.davidmiller.top>主页</a> | <img src="https://static.davidmiller.top/image/common/beian.png" style="width:16px;"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035614" target="_blank">京公网安备 11010802035614号</a> | <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2021023756号-1</a>
+</div>
+<br><br><br>
+</center>
+<script src="https://static.davidmiller.top/js/statuspage.js"></script>
+</body>
+</html>
